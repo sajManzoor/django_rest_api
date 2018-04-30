@@ -5,6 +5,7 @@ from . import views
 
 router = DefaultRouter()
 router.register('StartViewSet',views.StartViewSet, base_name='StartViewSet')
+router.register('profile',views.UserProfileViewSet)
 
 urlpatterns = [
     url(r'^start-view/', views.StartApiView.as_view()),

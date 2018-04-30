@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from . import serializers
 from rest_framework import viewsets
+from . import models
 
 
 # Create your views here.
@@ -100,3 +101,11 @@ class StartViewSet(viewsets.ViewSet):
         """Handles destroying an object  , corresponds to http delete method"""
 
         return Response({'http_method': 'DELETE'})
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """Handles creating reading and updating model profiles."""
+
+    serializer_class = serializers.UserProfileSerializer
+    queryset = models.UserProfile.objects.all()
+
