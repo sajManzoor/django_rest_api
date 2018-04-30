@@ -57,6 +57,7 @@ class StartApiView(APIView):
 class StartViewSet(viewsets.ViewSet):
     """Test API ViewSet."""
 
+    serializer_class = serializers.StartViewSetSerializer
     def list(self, request):
         """Return a message"""
         a_viewset = [
@@ -66,3 +67,5 @@ class StartViewSet(viewsets.ViewSet):
 
         ]
         return Response({'message':'StartViewSet',"list":a_viewset})
+
+
