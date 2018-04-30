@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from . import serializers
+from rest_framework import viewsets
 
 
 # Create your views here.
@@ -51,3 +52,17 @@ class StartApiView(APIView):
         """Deletes an object"""
 
         return Response({'method': 'delete'})
+
+
+class StartViewSet(viewsets.ViewSet):
+    """Test API ViewSet."""
+
+    def list(self, request):
+        """Return a message"""
+        a_viewset = [
+            'uses actions (list, create, retrievev, update, partial_update)',
+            'Automatically maps to URLS using Routers',
+            'Provides more functionality with less code.'
+
+        ]
+        return Response({'message':'StartViewSet',"list":a_viewset})
